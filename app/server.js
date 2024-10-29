@@ -22,8 +22,7 @@ function connectWithRetry() {
       setTimeout(connectWithRetry, 5000);
     } else {
       console.log('Conectado ao banco de dados MySQL');
-
-      // Tenta criar a tabela se ela não existir
+      
       db.query(
         `CREATE TABLE IF NOT EXISTS people (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255))`,
         (err) => {
